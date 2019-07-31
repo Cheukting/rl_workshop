@@ -15,7 +15,6 @@ In this workshop, through exercises, we will learn about (Deep) Reinforcement Le
   * TBC
 * **Part 3**
   * TBC
-* [References](#references)
 
 ----
 ## What is Reinforcement Learning
@@ -37,7 +36,19 @@ The goal of reinforcement learning is to find the policy, a strategies of what s
 
 ## Crossentropy Method
 
+Corssentropy method is considered as Monte Carlo methods as it's mechanism involve trying different actions many times, provided that:
 
-## References
+1. the MDP is finite
+2. sufficient memory is available
+3. problem is episodic
+4. after each episode a new one starts fresh
+
+
+
+
+
+<!--- References --->
+
 [1]: https://en.wikipedia.org/wiki/Reinforcement_learning
+
 [2]: https://commons.wikimedia.org/wiki/File:Markov_Decision_Process.svg
