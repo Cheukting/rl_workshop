@@ -9,16 +9,16 @@ In this workshop, through exercises, we will learn about (Deep) Reinforcement Le
   * [What is Reinforcement Learning](#what-is-reinforcement-learning)
   * [101 of Reinforcement Learning](#101-of-reinforcement-learning)
   * [Crossentropy Method](#crossentropy-method)
-    * [Exercise - Crossentropy Method](#)
-    * [Exercise - Deep Crossentropy Method](#)
+    * [Exercise - Crossentropy Method](https://colab.research.google.com/github/Cheukting/rl_workshop/blob/master/exercises/rl_workshop_crossentropy_method.ipynb)
+    * [Exercise - Deep Crossentropy Method](https://colab.research.google.com/github/Cheukting/rl_workshop/blob/master/exercises/rl_workshop_deep_crossentropy_method.ipynb)
 * **Part 2**
   * [Model-free Model](#model-free-model)
   * [Cliff World: Q-learning vs SARSA](#cliff-world-q-learning-vs-sarsa)
-    * [Exercise - Cliff World](#)
+    * [Exercise - Cliff World](https://colab.research.google.com/github/Cheukting/rl_workshop/blob/master/exercises/rl_workshop_cliff_world.ipynb)
 * **Part 3**
   * [Experience Replay](#experience-replay)
   * [Approximate Q-learning and Deep Q-Network](#approximate-q-learning-and-deep-q-network)
-    * [Exercise - DQN](#)
+    * [Exercise - DQN](https://colab.research.google.com/github/Cheukting/rl_workshop/blob/master/exercises/rl_workshop_dqn.ipynb)
 ----
 ## What is Reinforcement Learning
 Also classified as machine learning, what makes reinforcement learning stands out is that an example is not necessary for training, so it is not supervised learning. However, different from un-supervised learning like k-mean clustering or anomaly detection, reinforcement learning takes a bottom-up approach rather than top-down approach. By trying out different actions with different policy and record different outcomes (rewards), we train an agent that creates it's own 'training data' from trials and 'learn' from it. Sometime, reinforcement learning is listing alongside supervised learning and unsupervised learning as one of three basic machine learning paradigms[1]
@@ -55,6 +55,10 @@ For details and mathematic explanation of crossentropy method can be found on [W
 > 4. Update the distribution according to the policies we have chosen
 
 ## Exercises
+
+- Crossentropy Method [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Cheukting/rl_workshop/blob/master/exercises/rl_workshop_crossentropy_method.ipynb)
+
+- Deep Crossentropy Method [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Cheukting/rl_workshop/blob/master/exercises/rl_workshop_deep_crossentropy_method.ipynb)
 
 ----
 ## Model-free Model
@@ -107,6 +111,8 @@ As you can see, in theory, if the agent always picks the most optimal path (off-
 
 ## Exercise
 
+- Cliff World [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Cheukting/rl_workshop/blob/master/exercises/rl_workshop_cliff_world.ipynb)
+
 ----
 ## Experience Replay
 
@@ -121,6 +127,8 @@ State space can be large, and sometimes continuous, so kind of like what we did 
 The famous DQN Paper was published by Google Deep Mind to play Atari Breakout in 2015, the design involve stacking 4 flames together so you can 'see' the action of the ball movement and use a CNN as an agent. We will try implementing it in the last exercise, before that, feel free to checkout the [video](https://www.youtube.com/embed/V1eYniJ0Rnk?enablejsapi=1) of how a fully trained agent play the game.
 
 ## Exercise
+
+- DQN [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Cheukting/rl_workshop/blob/master/exercises/rl_workshop_dqn.ipynb)
 
 <!--- References --->
 
