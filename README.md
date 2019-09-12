@@ -19,6 +19,7 @@ In this workshop, through exercises, we will learn about (Deep) Reinforcement Le
   * [Experience Replay](#experience-replay)
   * [Approximate Q-learning and Deep Q-Network](#approximate-q-learning-and-deep-q-network)
     * [Exercise - DQN](https://colab.research.google.com/github/Cheukting/rl_workshop/blob/master/exercises/rl_workshop_dqn.ipynb)
+
 ----
 ## What is Reinforcement Learning
 Also classified as machine learning, what makes reinforcement learning stands out is that an example is not necessary for training, so it is not supervised learning. However, different from un-supervised learning like k-mean clustering or anomaly detection, reinforcement learning takes a bottom-up approach rather than top-down approach. By trying out different actions with different policy and record different outcomes (rewards), we train an agent that creates it's own 'training data' from trials and 'learn' from it. Sometime, reinforcement learning is listing alongside supervised learning and unsupervised learning as one of three basic machine learning paradigms[1]
@@ -77,16 +78,11 @@ Model-free: you can sample trajectories
 
 1: Monte-Carlo
 
-- Averages Q over sampled paths
-- Needs full trajectory to learn
-- Less reliant on markov property
+In this method, the whole sampled 'path' of playing the game form the start to finish will be completed and the average Q will be consider. This method is less reliant on the Markov property.
 
-2: temporal difference
+2: Temporal Difference
 
-- Uses recurrent formula for Q
-- Learns from partial trajectory
-- Works with infinite MDP
-- Needs less experience to learn
+In this method, recurrent formula for Q will be involved and the agent will learn form the partial trajectory. (Learning on the go) It is great for infinite MDP and need less experience to learn.
 
 ## Cliff World: Q-learning vs SARSA
 
@@ -130,6 +126,7 @@ The famous DQN Paper was published by Google Deep Mind to play Atari Breakout in
 
 - DQN [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Cheukting/rl_workshop/blob/master/exercises/rl_workshop_dqn.ipynb)
 
+*Credit: Big thanks to [Yandex School of Data Analysis](https://github.com/yandexdataschool/Practical_RL) which most of the content of this workshop are based on*
 <!--- References --->
 
 [1]: https://en.wikipedia.org/wiki/Reinforcement_learning
