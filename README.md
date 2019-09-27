@@ -22,32 +22,32 @@ In this workshop, through exercises, we will learn about (Deep) Reinforcement Le
 
 ----
 ## What is Reinforcement Learning
-Also classified as machine learning, what makes reinforcement learning stands out is that an example is not necessary for training, so it is not supervised learning. However, different from un-supervised learning like k-mean clustering or anomaly detection, reinforcement learning takes a bottom-up approach rather than top-down approach. By trying out different actions with different policy and record different outcomes (rewards), we train an agent that creates it's own 'training data' from trials and 'learn' from it. Sometime, reinforcement learning is listing alongside supervised learning and unsupervised learning as one of three basic machine learning paradigms[1]
+Also classified as machine learning, what makes reinforcement learning stands out is that an example is not necessary for training, so it is not supervised learning. However, different from unsupervised learning like k-mean clustering or anomaly detection, reinforcement learning takes a bottom-up approach rather than a top-down approach. By trying out different actions with different policy and record different outcomes (rewards), we train an agent that creates it's own 'training data' from trials and 'learn' from it. Sometimes, reinforcement learning is listing alongside supervised learning and unsupervised learning as one of three basic machine learning paradigms[1]
 
 ## 101 of Reinforcement Learning
 
-First we will go through the basics of reinforcement learning. Almost all problems we solved using reinforcement learning will involve defining a set of agent states in the environment and a set of actions that can be taken by the agent with what rewards those can lead to. The very basic of how this works is to make use of Markov decision process (MDP).
+First, we will go through the basics of reinforcement learning. Almost all problems we solved using reinforcement learning will involve defining a set of agent states in the environment and a set of actions that can be taken by the agent with what rewards those can lead to. The very basic of how this works is to make use of Markov decision process (MDP).
 
 #### Markov decision process
 
 ![Markov decision process](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Markov_Decision_Process.svg/800px-Markov_Decision_Process.svg.png)
 
-To explain, for the agent at each state, it can take an action which will have different probability to move to a different state which will lead to different rewards.[2]
+To explain, for the agent at each state, it can take an action which will have a different probability to move to a different state which will lead to different rewards.[2]
 
 #### Finding the 'winning' policy
 
-The goal of reinforcement learning is to find the policy, a strategies of what series of actions to take, that gain the maximum rewards possible. You may want to try brute force, which is to try all combination of actions to take and pick the best policy. But most of the time it will not work as the number of policies can be large, or even infinite. Practically speaking, we will need other algorithms to pick the best policy (or the best one we came across so far). We will introduce some of the popular ones in this workshop. We will also try to implement them in Python (with Keras and Tensorflow) to solve problems or play games in OpenAI Gym.
+The goal of reinforcement learning is to find the policy, strategies of what series of actions to take, that gain the maximum rewards possible. You may want to try brute force, which is to try all combination of actions to take and pick the best policy. But most of the time it will not work as the number of policies can be large, or even infinite. Practically speaking, we will need other algorithms to pick the best policy (or the best one we came across so far). We will introduce some of the popular ones in this workshop. We will also try to implement them in Python (with Keras and Tensorflow) to solve problems or play games in OpenAI Gym.
 
 ## Crossentropy Method
 
-Corssentropy method is considered as Monte Carlo methods as it's mechanism involve trying different actions many times, provided that:
+Crossentropy method is considered as Monte Carlo methods as it's mechanism involve trying different actions many times, provided that:
 
 1. the MDP is finite
 2. sufficient memory is available
 3. problem is episodic
-4. after each episode a new one starts fresh
+4. after each episode, a new one starts fresh
 
-For details and mathematic explanation of crossentropy method can be found on [Wikipedia](https://en.wikipedia.org/wiki/Cross-entropy_method). To summarize, overview of what we gonna do with crossentropy method:
+For details and mathematic explanation of crossentropy method can be found on [Wikipedia](https://en.wikipedia.org/wiki/Cross-entropy_method). To summarize, an overview of what we gonna do with crossentropy method:
 
 > While it has not converge:
 > 1. Sample N policies with the current distribution
@@ -64,7 +64,7 @@ For details and mathematic explanation of crossentropy method can be found on [W
 ----
 ## Model-free Model
 
-So far we have to know exactly what will happened when we takes a certain action at a current state. That is the rewards and the next state for each state-action pair. What if we are not sure (which is most of what happened in real life) and can only have expectation values for the rewards Qπ(s,a) at a certain state-action (from a statistic point of view). Here comes the Model-free Model, the differences are:
+So far we have to know exactly what will happen when we take a certain action at a current state. That is the rewards and the next state for each state-action pair. What if we are not sure (which is most of what happened in real life) and can only have expectation values for the rewards Qπ(s,a) at a certain state-action (from a statistic point of view). Here comes the Model-free Model, the differences are:
 
 Model-based: you know P(s'|s,a)
  - can apply dynamic programming
@@ -74,31 +74,31 @@ Model-free: you can sample trajectories
  - can try stuff out
  - insurance not included
 
- To find the expectation, there are 2 strategies:
+To find the expectation, there are 2 strategies:
 
 1: Monte-Carlo
 
-In this method, the whole sampled 'path' of playing the game form the start to finish will be completed and the average Q will be consider. This method is less reliant on the Markov property.
+In this method, the whole sampled 'path' of playing the game form the start to finish will be completed and the average Q will be considered. This method is less reliant on the Markov property.
 
 2: Temporal Difference
 
-In this method, recurrent formula for Q will be involved and the agent will learn form the partial trajectory. (Learning on the go) It is great for infinite MDP and need less experience to learn.
+In this method, the recurrent formula for Q will be involved and the agent will learn from the partial trajectory. (Learning on the go) It is great for infinite MDP and needs less experience to learn.
 
 ## Cliff World: Q-learning vs SARSA
 
-Some time it can also be reference as off-policy vs on-policy, the different between Q-learning and SARSA is
+Sometimes it can also be referred to as off-policy vs on-policy, the different between Q-learning and SARSA is
 
-on-policy (e.g. SARSA)
+#### on-policy (e.g. SARSA)
 
-Agent can pick actions
-Agent always follows his own policy
+* Agent can pick actions
+* Agent always follows his own policy
 
-off-policy (e.g. Q-learning)
+#### off-policy (e.g. Q-learning)
 
-Agent can't pick actions
-Learning with exploration, playing without exploration
-Learning from expert (expert is imperfect)
-Learning from sessions (recorded data)
+* Agent can't pick actions
+* Learning with exploration, playing without exploration
+* Learning from expert (expert is imperfect)
+* Learning from sessions (recorded data)
 
 One famous example is the Cliff World:
 ![Cliff World](http://ai.berkeley.edu/projects/release/reinforcement/v1/001/discountgrid.png)
@@ -114,13 +114,13 @@ As you can see, in theory, if the agent always picks the most optimal path (off-
 
 In deep learning, the same set of data will be used to train the model in many epoch. However, the 'training data' we have so far are only used one off. Sometime the game takes a long time to play it once and thus, training will be computationally expensive.
 
-To slightly improve this situation, we can store the 'gaming' experience with a buffer. Then we can train on random subsamples of it so we don't need to re-visit same (s,a) many times in playing the game to learn it. Also note that it only works with off-policy algorithms.
+To slightly improve this situation, we can store the 'gaming' experience with a buffer. Then we can train on random subsamples of it so we don't need to re-visit same (s,a) many times in playing the game to learn it. Also, note that it only works with off-policy algorithms.
 
 ## Approximate Q-learning and Deep Q-Network
 
-State space can be large, and sometimes continuous, so kind of like what we did to make Crossentropy Method into Deep Crossentropy Method, we can approximate agent with a function and learn Q value using neural network. This is what we will do in the following exercise.
+State-space can be large, and sometimes continuous, so kind of like what we did to make Crossentropy Method into Deep Crossentropy Method, we can approximate agent with a function and learn Q value using a neural network. This is what we will do in the following exercise.
 
-The famous DQN Paper was published by Google Deep Mind to play Atari Breakout in 2015, the design involve stacking 4 flames together so you can 'see' the action of the ball movement and use a CNN as an agent. We will try implementing it in the last exercise, before that, feel free to checkout the [video](https://www.youtube.com/embed/V1eYniJ0Rnk?enablejsapi=1) of how a fully trained agent play the game.
+The famous DQN Paper was published by Google Deep Mind to play Atari Breakout in 2015, the design involve stacking 4 flames together so you can 'see' the action of the ball movement and use a CNN as an agent. We will try implementing it in the last exercise, before that, feel free to check out the [video](https://www.youtube.com/embed/V1eYniJ0Rnk?enablejsapi=1) of how a fully trained agent play the game.
 
 ## Exercise
 
